@@ -1,13 +1,14 @@
 import C from '../constants'
-const filterByYearReducer = (state = null, action)=>{
+
+const initialState = null;
+const filterByYearReducer = (state = initialState, action) =>{
     switch(action.type){
         case C.FILTER_YEAR:
-            return action.filterYear;
-        case C.SHOW_ALL:
-            return state
+         return action.payload
         default:
-            return state
+            return state;
     }
+
 }
 
 export default filterByYearReducer

@@ -1,15 +1,20 @@
-import counterReducer from './counter'
 import sortByReducer from './sortBy'
-import fetchItemsReducer from './fetchItems'
+import postReducer from './posts'
 import filterByYearReducer from './filterByYear'
+import getYearsReducer from './getYears'
+
 
 import {combineReducers} from 'redux'
 
+
+
 const allReducers = combineReducers({
-    counter: counterReducer,
-    sortBy: sortByReducer,
-    posts: fetchItemsReducer,
-    filterByYear: filterByYearReducer,
+    launchList:  combineReducers({
+        sortBy: sortByReducer,
+        posts: postReducer,
+        years: getYearsReducer,
+        filterByYear: filterByYearReducer
+    })
 })
 
 export default allReducers;

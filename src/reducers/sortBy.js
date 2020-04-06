@@ -1,5 +1,8 @@
 import C from '../constants'
-const sortByReducer = (state = C.SORT_ASC, action)=>{
+
+const initialState = C.SORT_ASC;
+
+const sortByReducer = (state = initialState, action)=>{
     switch(action.type){
         case C.SORT_ASC:
             return C.SORT_ASC;

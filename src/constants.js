@@ -5,6 +5,5 @@ const Constants = {
     GET_UNIQUE_YEARS: "GET_UNIQUE_YEARS",
     POPULATE_DROPDOWN:"POPULATE_DROPDOWN",
     FETCH_DATA: "FETCH_DATA",
-    SHOW_ALL: "SHOW_ALL"
 }
 export default Constants
