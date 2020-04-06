@@ -1,75 +1,81 @@
 import React, { useEffect } from "react";
 import ApiItem from "./ApiItem";
 import Select from "react-select";
-import  * as a  from "../actions";
+import * as a from "../actions";
 import C from "../constants";
 
 import { connect, useDispatch } from "react-redux";
 
+function IsLoading() {
+  return <p>Loading...</p>;
+}
 function ApiItemList(props) {
   const dispatch = useDispatch();
-  const dispatchAction =
-    props.sortBy === C.SORT_ASC ? a.sortByDesc() : a.sortByAsc();
-  let sortByText =
-    props.sortBy === C.SORT_ASC ? "Sort Descending" : "Sort Ascending";
-
-  const handleClick = () => {
-    dispatch(dispatchAction);
-  };
-
-  const handleChange = (selectedOption) => {
-    dispatch(a.filterByYear(selectedOption));
-  };
-
-  const refresh =() =>{
-    dispatch(a.refresh());
-  }
 
   useEffect(() => {
     dispatch(a.fetchPosts());
   }, []);
+
+  const dispatchAction =
+    props.sortBy === C.SORT_ASC ? a.sortByDesc() : a.sortByAsc();
+
+  let sortByText =
+    props.sortBy === C.SORT_ASC ? "Sort Descending" : "Sort Ascending";
+
+  const sortOrder = () => {
+    dispatch(dispatchAction);
+  };
+
+  const filterYear = (selectedOption) => {
+    dispatch(a.filterByYear(selectedOption));
+  };
+
+  const refresh = () => {
+    dispatch(a.refresh());
+  };
 
   return (
     <div>
       <button onClick={refresh}>REFRESH</button>
       <Select
         value={props.filterByYear}
-        onChange={handleChange}
+        onChange={filterYear}
         options={props.years}
         placeholder="Filter by year"
       />
-      <ol>
-        <p onClick={handleClick}>{sortByText}</p>
-        {(props.posts || []).map((item, i) => (
-          <ApiItem key={i} {...item} />
-        ))}
-      </ol>
+      <button onClick={sortOrder}>{sortByText}</button>
+      {props.loading ? (
+        <IsLoading></IsLoading>
+      ) : (
+        <ol>
+          {(props.posts || []).map((item, i) => (
+            <ApiItem key={i} {...item} />
+          ))}
+        </ol>
+      )}
     </div>
   );
 }
 const mapStateToProps = (state) => {
-  const launchlist = state.launchList;
+  const { sortBy, years, filterByYear, loading } = state.launchList;
   return {
-    posts: sortPosts(launchlist),
-    sortBy: launchlist.sortBy,
-    years: launchlist.years,
-    filterByYear: launchlist.filterByYear,
+    posts: sortPosts(state.launchList),
+    sortBy: sortBy,
+    years: years,
+    filterByYear: filterByYear,
+    loading: loading,
   };
 };
 
 const sortPosts = (launchlist) => {
-  let posts = launchlist.posts;
-  if (
-    launchlist.filterByYear != null &&
-    launchlist.filterByYear.value != null
-  ) {
+  let { posts, sortBy, filterByYear } = launchlist;
+  if (filterByYear != null && filterByYear.value != null) {
     posts = posts.filter(
       (post) =>
-        new Date(post.launch_date_utc).getFullYear() ===
-        launchlist.filterByYear.value
+        new Date(post.launch_date_utc).getFullYear() === filterByYear.value
     );
   }
-  posts = launchlist.sortBy === C.SORT_ASC ? posts : posts.slice().reverse();
+  posts = sortBy === C.SORT_ASC ? posts : posts.slice().reverse();
   return posts;
 };
 
