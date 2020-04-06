@@ -1,5 +1,5 @@
-import React from 'react';
-import ApiItemList from './Components/ApiItemList'
+import React from "react";
+import ApiItemList from "./Components/ApiItemList";
 
 function App() {
   return (
@@ -8,6 +8,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

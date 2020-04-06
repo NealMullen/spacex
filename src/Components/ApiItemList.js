@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ApiItem from "./ApiItem";
 import Select from "react-select";
-import { Actions as a } from "../actions";
+import  * as a  from "../actions";
 import C from "../constants";
 
 import { connect, useDispatch } from "react-redux";
@@ -18,8 +18,12 @@ function ApiItemList(props) {
   };
 
   const handleChange = (selectedOption) => {
-    dispatch(a.filterYear(selectedOption));
+    dispatch(a.filterByYear(selectedOption));
   };
+
+  const refresh =() =>{
+    dispatch(a.refresh());
+  }
 
   useEffect(() => {
     dispatch(a.fetchPosts());
@@ -27,6 +31,7 @@ function ApiItemList(props) {
 
   return (
     <div>
+      <button onClick={refresh}>REFRESH</button>
       <Select
         value={props.filterByYear}
         onChange={handleChange}
@@ -64,8 +69,7 @@ const sortPosts = (launchlist) => {
         launchlist.filterByYear.value
     );
   }
-  posts =
-  launchlist.sortBy === C.SORT_ASC ? posts : posts.slice().reverse();
+  posts = launchlist.sortBy === C.SORT_ASC ? posts : posts.slice().reverse();
   return posts;
 };
 

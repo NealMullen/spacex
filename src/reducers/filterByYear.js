@@ -8,7 +8,6 @@ const filterByYearReducer = (state = initialState, action) =>{
         default:
             return state;
     }
-
 }
 
 export default filterByYearReducer
