@@ -4,7 +4,7 @@ const initialState = true;
 
 const isLoading = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCHING":
+    case C.LOADING:
       return action.payload;
     default:
       return state;

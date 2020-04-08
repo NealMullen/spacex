@@ -1,0 +1,331 @@
+$primary-blue: #215184;
+$font-color: #545454;
+$font-family: "Brandon Grotesque", Arial, Helvetica, sans-serif;
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("../font/BrandonGrotesque-Bold.woff2") format("woff2"),
+    url("../font/BrandonGrotesque-Bold.woff") format("woff"),
+    url("../font/BrandonGrotesque-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("../font/BrandonGrotesque-Regular.woff2") format("woff2"),
+    url("../font/BrandonGrotesque-Regular.woff") format("woff"),
+    url("../font/BrandonGrotesque-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("../font/BrandonGrotesque-RegularItalic.woff2") format("woff2"),
+    url("../font/BrandonGrotesque-RegularItalic.woff") format("woff"),
+    url("../font/BrandonGrotesque-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("../font/BrandonGrotesque-Black.woff2") format("woff2"),
+    url("../font/BrandonGrotesque-Black.woff") format("woff"),
+    url("../font/BrandonGrotesque-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brandon Grotesque";
+  src: url("../font/BrandonGrotesque-Medium.woff2") format("woff2"),
+    url("../font/BrandonGrotesque-Medium.woff") format("woff"),
+    url("../font/BrandonGrotesque-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: $font-family;
+  color: $font-color;
+}
+.api-listing {
+  margin-top: 10px;
+  @media (min-width: 576px) {
+    margin-top: 40px;
+  }
+}
+#app {
+  padding: 20px;
+}
+
+.logo {
+  > img,
+  > span {
+    vertical-align: middle;
+  }
+}
+
+.action{
+  background-color: $primary-blue;
+  font-weight: 500;
+  font-size: 16px;
+  $font-family: "Brandon Grotesque", Arial, Helvetica, sans-serif;
+  color:#fff;
+}
+.btn {
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  // font-weight: 700;
+  // font-size: 13px;
+  border-radius: none;
+  // &.primary {
+  //   background-color: $primary-blue;
+  // }
+
+  > img,
+  > span {
+    vertical-align: middle;
+  }
+  > img {
+    padding-left: 5px;
+  }
+}
+
+.list {
+  &.no-style {
+    list-style: none;
+    padding: 0;
+  }
+  .item {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.flight-number {
+  font-size: 40px;
+}
+
+.flight-name {
+  font-size: 32px;
+  margin-top: 5px;
+  display: block;
+}
+
+.logo-img {
+  width: 178px;
+  display:block;
+}
+.logo-text {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.spinner-border {
+  margin: 0 auto;
+  display:block;
+}
+
+.filters {
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 576px) {
+    float: right;
+  }
+  margin-bottom: 20px;
+  .filter-control {
+    float: left;
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+    border: none;
+    padding: 10px 16px;
+    height: 45px;
+    border-radius: none;
+    color:#fff;
+    @media (max-width: 576px) {
+      & + .filter-control {
+        margin-top: 10px;
+      }
+    }
+    @media (min-width: 576px) {
+      & + .filter-control {
+        margin-left: 10px;
+      }
+    }
+    .Dropdown-control {
+      width: 100%;
+      @media (min-width: 576px) {
+        width: 140px;
+      }
+      color:#fff;
+      background-color: $primary-blue;
+    }
+    .Dropdown-menu{
+      width: 100%;
+    }
+  }
+}
+
+.home-img{
+  width:100%;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.flight-number,
+.flight-name {
+  font-weight: 500;
+}
+.rocket-name {
+  font-weight: 700;
+}
+
+.rocket-name {
+  font-size: 24px;
+}
+
+.refresh-col{
+  @media (min-width: 576px) {
+    position: inherit;
+  }
+}
+.refresh {
+  font-size: 16px;
+  font-weight: 500;
+  @media (max-width: 576px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+  @media (min-width: 576px) {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}
+
+.type-control{
+  background:$primary-blue;
+  width:175px;
+  margin-top:10px;
+  .Dropdown-control{
+  color:#fff;
+  }
+  .Dropdown-menu{
+    width:175px;
+  }
+}
+
+// From react-dropdown
+.Dropdown-root {
+  position: relative;
+  padding: 0 !important;
+}
+
+.Dropdown-control {
+  position: relative;
+  overflow: hidden;
+
+  border: none;
+  cursor: default;
+  outline: none;
+  color: $font-color;
+  padding: 10px;
+  transition: all 200ms ease;
+  $font-family: "Brandon Grotesque", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.Dropdown-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.Dropdown-arrow {
+  border-color: #fff transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: -ceil(2.5);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 0;
+}
+
+.is-open .Dropdown-arrow {
+  border-color: transparent transparent #fff;
+  border-width: 0 5px 5px;
+}
+
+.Dropdown-menu {
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Dropdown-placeholder {
+  font-size: 16px;
+  @media (max-width: 576px) {
+    text-align: center;
+  }
+}
+
+.Dropdown-menu .Dropdown-group > .Dropdown-title {
+  padding: 8px 10px;
+  color: rgba(51, 51, 51, 1.2);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.Dropdown-option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.Dropdown-option:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.Dropdown-option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.Dropdown-option.is-selected {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.Dropdown-noresults {
+  box-sizing: border-box;
+  color: #ccc;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}

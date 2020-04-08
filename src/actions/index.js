@@ -1,4 +1,5 @@
 import C from "../constants";
+import apiConfig from '../ApiConfigs';
 
 const getUniqueYear = (api) => {
   let dateList = new Set();
@@ -13,29 +14,43 @@ const getUniqueYear = (api) => {
   return dates;
 };
 
-export const fetchPosts = () => {
-  return function (dispatch) {
-    dispatch(isFetching(true));
+export const fetchPosts = (apiType) => {
 
-    fetch(
-      `https://api.spacexdata.com/v3/launches?filter=flight_number,mission_name,launch_date_utc&pretty=true`
-    )
+  let url = `${apiConfig.baseUrl}${apiConfig[apiType].url}?filters=${apiConfig[apiType].filter}`;
+
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    fetch(url)
       .then((res) => res.json())
       .then((posts) => {
         var dates = getUniqueYear(posts);
         dispatch(populatePosts(posts));
-        dispatch(isFetching(false));
+        dispatch(isLoading(false));
         dispatch(populateUniqueYears(dates));
       })
       .catch(function (error) {
-        dispatch(isFetching(false));
+        dispatch(isLoading(false));
       });
   };
 };
-const isFetching = (loaded) => {
+const isLoading = (loaded) => {
   return {
-    type: "FETCHING",
+    type: C.LOADING,
     payload: loaded,
+  };
+};
+
+const updateType = (type) => {
+  return {
+    type: "TYPE",
+    payload: type,
+  };
+};
+
+export const changeType = (type) => {
+  return function (dispatch) {
+    dispatch(fetchPosts(type));
+    dispatch(updateType(type));
   };
 };
 const populatePosts = (posts) => {
@@ -50,9 +65,9 @@ const populateUniqueYears = (years) => {
     payload: years,
   };
 };
-export const refresh = () => {
+export const refresh = (apiType) => {
   return function (dispatch) {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts(apiType));
     dispatch(filterByYear(null));
     dispatch(sortByAsc());
   };

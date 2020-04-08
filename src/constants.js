@@ -3,7 +3,10 @@ const Constants = {
   SORT_DESC: "DESC",
   FILTER_YEAR: "FILTER_YEAR",
   GET_UNIQUE_YEARS: "GET_UNIQUE_YEARS",
-  POPULATE_DROPDOWN: "POPULATE_DROPDOWN",
   FETCH_DATA: "FETCH_DATA",
+  LAUNCH_API: "LAUNCHES",
+  MISSIONS_API: "MISSIONS",
+  LOADING: "LOADING"
 };
-export default Constants;
+
+export default Constants
