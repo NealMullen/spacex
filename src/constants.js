@@ -6,7 +6,8 @@ const Constants = {
   FETCH_DATA: "FETCH_DATA",
   LAUNCH_API: "LAUNCHES",
   MISSIONS_API: "MISSIONS",
-  LOADING: "LOADING"
+  LOADING: "LOADING",
+  CHANGE_API_TYPE: "CHANGE_API_TYPE"
 };
 
 export default Constants

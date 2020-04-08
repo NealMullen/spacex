@@ -42,7 +42,7 @@ const isLoading = (loaded) => {
 
 const updateType = (type) => {
   return {
-    type: "TYPE",
+    type: C.CHANGE_API_TYPE,
     payload: type,
   };
 };
