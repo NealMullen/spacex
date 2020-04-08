@@ -49,8 +49,10 @@ const updateType = (type) => {
 
 export const changeType = (type) => {
   return function (dispatch) {
-    dispatch(fetchPosts(type));
     dispatch(updateType(type));
+    dispatch(fetchPosts(type));
+    dispatch(filterByYear(null));
+
   };
 };
 const populatePosts = (posts) => {
