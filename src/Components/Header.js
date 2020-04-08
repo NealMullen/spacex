@@ -5,7 +5,7 @@ import C from "../constants";
 import RefreshButton from "./actions/RefreshButton";
 import { Container, Row, Col } from "react-bootstrap";
 import { connect, useDispatch } from "react-redux";
-import * as a from "../actions";
+import {changeType} from "../actions";
 
 function Header(props) {
   let ops = [
@@ -13,8 +13,8 @@ function Header(props) {
     { label: C.MISSIONS_API, value: C.MISSIONS_API },
   ];
   const dispatch = useDispatch();
-  const changeType = (selectedOption) => {
-    dispatch(a.changeType(selectedOption.value));
+  const handleChange = (selectedOption) => {
+    dispatch(changeType(selectedOption.value));
   };
 
   return (
@@ -33,7 +33,7 @@ function Header(props) {
               options={ops}
               className="type-control"
               value={props.apiType}
-              onChange={changeType}
+              onChange={handleChange}
             />
           </Col>
           <Col className="refresh-col">

@@ -1,12 +1,11 @@
 import React from "react";
 import YearFilter from './years'
-import apiConfig from "../../ApiConfigs";
+import apiConfig from "../../config/Api";
 import SortBy from './sortBy'
 import { connect } from "react-redux";
 
 function Filters(props){
     const showYearFilter = apiConfig[props.apiType].filterByYear;
-
     if(showYearFilter){
       return(
         <div className="filters clearfix">

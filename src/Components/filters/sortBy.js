@@ -1,20 +1,19 @@
 import React from "react";
-import * as a from "../../actions";
 import { connect, useDispatch } from "react-redux";
-import C from "../../constants";
 import sortIcon from "../../assets/icon/sort.png";
+import Helpers from '../../helpers'
 
 function SortBy(props) {
+  const sortAction = Helpers.getSortByAction(props.sortBy);
+  let sortByText = Helpers.getSortByText(props.sortBy);
+
   const dispatch = useDispatch();
-  const sortAction =
-    props.sortBy === C.SORT_ASC ? a.sortByDesc() : a.sortByAsc();
-  let sortByText =
-    props.sortBy === C.SORT_ASC ? "Sort Descending" : "Sort Ascending";
-  const sortOrder = () => {
+  const handleClick = () => {
     dispatch(sortAction);
   };
+
   return (
-    <button className="filter-control action" onClick={sortOrder}>
+    <button className="filter-control action" onClick={handleClick}>
       <span>{sortByText}</span> <img src={sortIcon} alt="" />
     </button>
   );

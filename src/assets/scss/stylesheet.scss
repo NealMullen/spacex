@@ -52,21 +52,22 @@ body {
   font-family: $font-family;
   color: $font-color;
 }
+#app {
+  padding: 20px;
+}
+
 .api-listing {
   margin-top: 10px;
   @media (min-width: 576px) {
     margin-top: 40px;
   }
 }
-#app {
-  padding: 20px;
-}
 
 .logo {
-  > img,
-  > span {
-    vertical-align: middle;
-  }
+  .logo-img {
+    width: 178px;
+    display:block;
+  }  
 }
 
 .action{
@@ -77,23 +78,8 @@ body {
   color:#fff;
 }
 .btn {
-  color: #fff;
   border: none;
   padding: 10px 16px;
-  // font-weight: 700;
-  // font-size: 13px;
-  border-radius: none;
-  // &.primary {
-  //   background-color: $primary-blue;
-  // }
-
-  > img,
-  > span {
-    vertical-align: middle;
-  }
-  > img {
-    padding-left: 5px;
-  }
 }
 
 .list {
@@ -106,25 +92,6 @@ body {
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   }
-}
-
-.flight-number {
-  font-size: 40px;
-}
-
-.flight-name {
-  font-size: 32px;
-  margin-top: 5px;
-  display: block;
-}
-
-.logo-img {
-  width: 178px;
-  display:block;
-}
-.logo-text {
-  font-size: 20px;
-  text-transform: uppercase;
 }
 
 .spinner-border {
@@ -177,11 +144,9 @@ body {
 .home-img{
   width:100%;
 }
-
 .align-right {
   text-align: right;
 }
-
 .flight-number,
 .flight-name {
   font-weight: 500;
@@ -189,9 +154,17 @@ body {
 .rocket-name {
   font-weight: 700;
 }
-
 .rocket-name {
   font-size: 24px;
+}
+.flight-number {
+  font-size: 40px;
+}
+
+.flight-name {
+  font-size: 32px;
+  margin-top: 5px;
+  display: block;
 }
 
 .refresh-col{

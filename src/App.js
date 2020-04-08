@@ -1,21 +1,17 @@
 import React, { useEffect } from "react";
-import * as a from "./actions";
-import C from "./constants";
+import {fetchPosts} from "./actions";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import image from "./assets/img/launch-home.png";
-import apiConfig from "./ApiConfigs";
 import Filters from './Components/filters/filters'
 import { connect, useDispatch } from "react-redux";
-import ApiListTest from "./Components/ApiListTest";
+import ApiList from "./Components/ApiList";
 import Header from "./Components/Header";
-
-
 
 function App(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(a.fetchPosts(props.apiType));
+    dispatch(fetchPosts(props.apiType));
   }, []);
 
   return (
@@ -40,7 +36,7 @@ function App(props) {
                   <span className="sr-only">Loading...</span>
                 </Spinner>
               ) : (
-                <ApiListTest type={props.apiType}  />
+                <ApiList type={props.apiType}  />
               )}
             </Col>
           </Row>

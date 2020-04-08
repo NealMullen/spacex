@@ -1,18 +1,6 @@
 import C from "../constants";
-import apiConfig from '../ApiConfigs';
-
-const getUniqueYear = (api) => {
-  let dateList = new Set();
-  let dates = [{ value: null, label: "All" }];
-  api.forEach(function (apiItem) {
-    var date = new Date(apiItem.launch_date_utc);
-    dateList.add(date.getFullYear());
-  });
-  dateList.forEach((date) => {
-    dates.push({ value: date, label: date });
-  });
-  return dates;
-};
+import apiConfig from '../config/Api';
+import Helpers from '../helpers'
 
 export const fetchPosts = (apiType) => {
 
@@ -23,7 +11,7 @@ export const fetchPosts = (apiType) => {
     fetch(url)
       .then((res) => res.json())
       .then((posts) => {
-        var dates = getUniqueYear(posts);
+        var dates = Helpers.getUniqueYear(posts);
         dispatch(populatePosts(posts));
         dispatch(isLoading(false));
         dispatch(populateUniqueYears(dates));

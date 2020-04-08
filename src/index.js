@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/scss/stylesheet.scss";
-import C from "./constants";
 
 ReactDOM.render(
   <Provider store={store}>

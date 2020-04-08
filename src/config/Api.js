@@ -1,4 +1,4 @@
-import C from "./constants";
+import C from "../constants";
 
 const apiConfig ={
     baseUrl: "https://api.spacexdata.com/v3/",
